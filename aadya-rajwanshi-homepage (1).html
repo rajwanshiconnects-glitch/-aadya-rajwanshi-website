@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aadya Rajwanshi — British-South Asian Singer & Songwriter | ITV's The Voice Kids UK</title>
+<meta name="description" content="BRIT School-trained singer Aadya Rajwanshi — original artist, live performer, and ITV's The Voice Kids UK alumna. Stream her music on Spotify and Apple Music.">
+<meta property="og:title" content="Aadya Rajwanshi — Singer & Songwriter">
+<meta property="og:description" content="Where Bollywood soul meets British songwriting.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+/* ─── RESET & BASE ─────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#080808;
+  color:#F0EAE0;
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ─── CUSTOM CURSOR ────────────────────────────────────────── */
+.cursor-dot{
+  position:fixed;width:6px;height:6px;
+  background:#C9A96E;border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:transform 0.1s ease;
+}
+.cursor-ring{
+  position:fixed;width:32px;height:32px;
+  border:1px solid rgba(201,169,110,0.4);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:all 0.15s ease;
+}
+
+/* ─── NOISE TEXTURE OVERLAY ────────────────────────────────── */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity:0.025;
+  pointer-events:none;
+  z-index:1000;
+}
+
+/* ─── CSS VARIABLES ────────────────────────────────────────── */
+:root{
+  --gold:#C9A96E;
+  --gold-light:#E8C98A;
+  --gold-muted:rgba(201,169,110,0.15);
+  --text-cream:#F0EAE0;
+  --text-warm:#9A9080;
+  --text-muted:#4A4540;
+  --bg-card:#111111;
+  --bg-surface:#161616;
+  --border-subtle:rgba(255,255,255,0.06);
+  --border-gold:rgba(201,169,110,0.25);
+}
+
+/* ─── NAVIGATION ───────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;
+  z-index:100;
+  padding:28px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background 0.5s ease, backdrop-filter 0.5s ease, padding 0.4s ease;
+}
+nav.scrolled{
+  background:rgba(8,8,8,0.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  padding:18px 48px;
+  border-bottom:1px solid var(--border-subtle);
+}
+.nav-wordmark{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:22px;
+  font-weight:300;
+  letter-spacing:0.08em;
+  color:var(--text-cream);
+  text-decoration:none;
+  text-transform:uppercase;
+}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{
+  font-size:11px;font-weight:400;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--text-warm);
+  text-decoration:none;
+  transition:color 0.3s ease;
+}
+.nav-links a:hover{color:var(--text-cream)}
+.nav-book{
+  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  border:1px solid var(--border-gold);
+  color:var(--gold);
+  padding:10px 24px;
+  text-decoration:none;
+  transition:all 0.35s ease;
+}
+.nav-book:hover{background:var(--gold);color:#080808}
+
+/* Mobile nav toggle */
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.nav-toggle span{display:block;width:24px;height:1px;background:var(--text-cream);transition:all 0.3s ease}
+
+/* ─── HERO ─────────────────────────────────────────────────── */
+#hero{
+  position:relative;height:100vh;min-height:700px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to bottom, rgba(8,8,8,0.2) 0%, rgba(8,8,8,0.5) 60%, rgba(8,8,8,0.95) 100%),
+    linear-gradient(to right, rgba(8,8,8,0.4) 0%, transparent 50%, rgba(8,8,8,0.4) 100%),
+    radial-gradient(ellipse at 70% 40%, rgba(201,169,110,0.08) 0%, transparent 60%),
+    #0E0B09;
+}
+/* Artist photo placeholder - replace with real photo */
+.hero-photo{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(135deg, rgba(201,169,110,0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 65% 45%, rgba(180,120,60,0.12) 0%, transparent 55%),
+    #0C0A08;
+  /* In production: background-image: url('/images/hero.jpg'); background-size: cover; background-position: center 20%; */
+}
+.hero-photo::after{
+  content:'';position:absolute;
+  right:0;top:0;bottom:0;width:55%;
+  background:linear-gradient(135deg,rgba(201,169,110,0.04),rgba(120,80,30,0.08));
+  /* This is where the full-bleed artist photo would appear */
+}
+
+.hero-content{
+  position:relative;z-index:2;
+  text-align:center;
+  padding:0 24px;
+  max-width:900px;
+}
+.hero-credential{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--border-gold);
+  padding:6px 16px;
+  margin-bottom:36px;
+  opacity:0;
+  animation:fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+}
+.hero-credential span{
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);font-weight:400;
+}
+.hero-credential::before{
+  content:'';width:20px;height:1px;background:var(--gold);opacity:0.5;
+}
+.hero-credential::after{
+  content:'';width:20px;height:1px;background:var(--gold);opacity:0.5;
+}
+
+.hero-name{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:300;
+  font-size:clamp(56px,10vw,130px);
+  line-height:0.95;
+  letter-spacing:-0.02em;
+  color:var(--text-cream);
+  opacity:0;
+  animation:fadeUp 1.1s cubic-bezier(0.16,1,0.3,1) 0.4s forwards;
+}
+.hero-name em{
+  display:block;font-style:italic;
+  color:rgba(240,234,224,0.35);
+  letter-spacing:0.05em;
+  font-size:0.72em;
+}
+
+.hero-tagline{
+  margin-top:28px;
+  font-size:clamp(13px,1.4vw,16px);
+  font-weight:300;
+  letter-spacing:0.12em;
+  color:var(--text-warm);
+  text-transform:uppercase;
+  opacity:0;
+  animation:fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.65s forwards;
+}
+
+.hero-ctas{
+  margin-top:48px;
+  display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+  opacity:0;
+  animation:fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.85s forwards;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 36px;
+  background:var(--gold);
+  color:#080808;
+  font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+  font-weight:500;text-decoration:none;
+  transition:all 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-primary:hover{
+  background:var(--gold-light);
+  transform:translateY(-2px);
+  box-shadow:0 12px 40px rgba(201,169,110,0.2);
+}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 36px;
+  border:1px solid var(--border-gold);
+  color:var(--gold);
+  font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+  font-weight:400;text-decoration:none;
+  transition:all 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-outline:hover{
+  background:rgba(201,169,110,0.06);
+  border-color:var(--gold);
+  transform:translateY(-2px);
+}
+
+.hero-scroll{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  opacity:0;animation:fadeUp 1s ease 1.2s forwards;
+}
+.hero-scroll span{
+  font-size:9px;letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--text-muted);
+}
+.scroll-line{
+  width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent);
+  animation:scrollPulse 2s ease infinite;
+}
+
+/* ─── CREDENTIAL MARQUEE ───────────────────────────────────── */
+.marquee-bar{
+  background:var(--bg-card);
+  border-top:1px solid var(--border-subtle);
+  border-bottom:1px solid var(--border-subtle);
+  padding:14px 0;
+  overflow:hidden;
+}
+.marquee-track{
+  display:flex;white-space:nowrap;
+  animation:marquee 25s linear infinite;
+}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{
+  display:inline-flex;align-items:center;gap:24px;
+  padding:0 32px;
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--text-warm);
+}
+.marquee-dot{
+  display:inline-block;width:3px;height:3px;
+  border-radius:50%;background:var(--gold);opacity:0.6;
+}
+
+/* ─── SECTION BASE ─────────────────────────────────────────── */
+section{position:relative}
+.section-inner{max-width:1200px;margin:0 auto;padding:120px 48px}
+.section-label{
+  font-size:9px;letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--gold);font-weight:400;
+  margin-bottom:20px;
+}
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:300;
+  font-size:clamp(40px,5vw,72px);
+  line-height:1.05;
+  color:var(--text-cream);
+}
+
+/* ─── REVEAL ANIMATION ─────────────────────────────────────── */
+.reveal{
+  opacity:0;transform:translateY(28px);
+  transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.in-view{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.22s}
+.reveal-delay-3{transition-delay:0.34s}
+.reveal-delay-4{transition-delay:0.46s}
+
+/* ─── FEATURED RELEASE ─────────────────────────────────────── */
+#release{background:var(--bg-surface)}
+.release-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+}
+.release-artwork{
+  position:relative;aspect-ratio:1;
+  background:linear-gradient(135deg,#1a1208,#0c0a06);
+  overflow:hidden;
+}
+.release-artwork::before{
+  content:'TARNISHED\AREPUTATION';
+  white-space:pre;
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:42px;
+  text-align:center;
+  color:rgba(201,169,110,0.12);
+  line-height:1.2;
+  letter-spacing:0.05em;
+}
+.release-artwork-inner{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 30% 70%,rgba(201,169,110,0.15) 0%,transparent 50%),
+    radial-gradient(ellipse at 70% 30%,rgba(180,100,40,0.1) 0%,transparent 45%);
+}
+.release-artwork-label{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:32px;
+  background:linear-gradient(to top,rgba(8,8,8,0.9),transparent);
+}
+.release-artwork-label .track-title{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:32px;
+  color:var(--text-cream);
+  line-height:1.1;
+}
+.release-artwork-label .track-year{
+  font-size:10px;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--gold);
+  margin-top:4px;
+}
+
+.release-info{padding:0 16px}
+.release-desc{
+  font-size:16px;line-height:1.8;
+  color:var(--text-warm);
+  margin:24px 0 40px;
+  max-width:440px;
+}
+.platform-links{
+  display:flex;gap:12px;flex-wrap:wrap;
+  margin-bottom:40px;
+}
+.platform-link{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:9px 18px;
+  border:1px solid var(--border-subtle);
+  font-size:10px;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--text-warm);text-decoration:none;
+  transition:all 0.3s ease;
+}
+.platform-link:hover{
+  border-color:var(--border-gold);
+  color:var(--gold);
+}
+.platform-link svg{width:14px;height:14px;fill:currentColor}
+.spotify-embed-container{
+  border:1px solid var(--border-subtle);
+  overflow:hidden;
+}
+.spotify-embed-container iframe{display:block}
+
+/* ─── ARTIST STORY ─────────────────────────────────────────── */
+#story{
+  background:#080808;
+  position:relative;overflow:hidden;
+}
+#story::before{
+  content:'';position:absolute;
+  top:-200px;right:-200px;
+  width:600px;height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(201,169,110,0.04) 0%,transparent 70%);
+  pointer-events:none;
+}
+.story-grid{
+  display:grid;grid-template-columns:1fr 1.2fr;
+  gap:100px;align-items:start;
+}
+.story-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:clamp(32px,4vw,52px);
+  line-height:1.2;
+  color:var(--text-cream);
+  position:relative;
+  padding-left:32px;
+}
+.story-quote::before{
+  content:'';
+  position:absolute;left:0;top:8px;bottom:8px;
+  width:2px;
+  background:linear-gradient(to bottom,var(--gold),transparent);
+}
+.story-attribution{
+  margin-top:20px;
+  font-size:11px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--gold);
+  font-family:'DM Sans',sans-serif;
+  font-style:normal;
+  padding-left:32px;
+}
+
+.story-text{padding-top:8px}
+.story-body{
+  font-size:16px;line-height:1.9;
+  color:var(--text-warm);
+  margin-bottom:24px;
+}
+.timeline{margin-top:48px;position:relative}
+.timeline::before{
+  content:'';position:absolute;left:0;top:12px;bottom:12px;
+  width:1px;background:linear-gradient(to bottom,var(--gold),transparent);
+}
+.timeline-item{
+  display:flex;gap:28px;
+  padding-left:24px;
+  margin-bottom:32px;
+  position:relative;
+}
+.timeline-item::before{
+  content:'';
+  position:absolute;left:-3px;top:12px;
+  width:7px;height:7px;border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 12px rgba(201,169,110,0.4);
+}
+.timeline-year{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px;color:var(--text-muted);
+  min-width:52px;line-height:1;margin-top:2px;
+  transition:color 0.3s ease;
+}
+.timeline-item:hover .timeline-year{color:var(--gold)}
+.timeline-event{
+  font-size:13px;line-height:1.6;color:var(--text-warm);
+}
+.timeline-event strong{
+  display:block;font-weight:500;
+  color:var(--text-cream);font-size:14px;
+  margin-bottom:3px;
+}
+
+/* ─── PERFORMANCES ─────────────────────────────────────────── */
+#performances{background:var(--bg-surface)}
+.perf-header{
+  display:flex;justify-content:space-between;
+  align-items:flex-end;margin-bottom:60px;
+}
+.perf-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+}
+.perf-card{
+  position:relative;aspect-ratio:0.8;
+  background:var(--bg-card);
+  overflow:hidden;cursor:pointer;
+}
+.perf-card:first-child{
+  grid-row:span 2;aspect-ratio:auto;
+}
+.perf-card-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,#181208,#100c06);
+  transition:transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.perf-card:hover .perf-card-bg{transform:scale(1.04)}
+.perf-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(8,8,8,0.9) 0%,rgba(8,8,8,0.2) 60%,transparent 100%);
+}
+.perf-card-content{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:28px;
+}
+.perf-card-tag{
+  display:inline-block;
+  font-size:9px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:10px;
+}
+.perf-card-title{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:clamp(20px,2.5vw,28px);
+  line-height:1.2;
+  color:var(--text-cream);
+}
+.perf-card-meta{
+  margin-top:8px;
+  font-size:11px;letter-spacing:0.1em;
+  color:rgba(240,234,224,0.45);
+}
+.perf-card-play{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0.8);
+  width:56px;height:56px;border-radius:50%;
+  border:1px solid rgba(201,169,110,0.4);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:all 0.4s ease;
+  background:rgba(8,8,8,0.5);
+  backdrop-filter:blur(8px);
+}
+.perf-card:hover .perf-card-play{
+  opacity:1;transform:translate(-50%,-50%) scale(1);
+}
+.perf-card-play svg{width:18px;height:18px;fill:var(--gold);margin-left:3px}
+
+/* ─── SOCIAL PROOF ─────────────────────────────────────────── */
+#press{background:#080808}
+.press-logos{
+  display:flex;gap:40px;align-items:center;
+  flex-wrap:wrap;margin-bottom:80px;
+  padding-bottom:60px;
+  border-bottom:1px solid var(--border-subtle);
+}
+.press-logo{
+  font-size:18px;font-weight:300;
+  letter-spacing:0.08em;
+  color:var(--text-muted);
+  text-decoration:none;
+  transition:color 0.3s ease;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+}
+.press-logo:hover{color:var(--text-warm)}
+.press-logo em{font-style:normal;font-size:11px;letter-spacing:0.15em;text-transform:uppercase}
+
+.press-quote-block{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2px;
+}
+.press-quote{
+  background:var(--bg-card);
+  padding:48px;
+  border-top:1px solid var(--border-subtle);
+  transition:border-color 0.3s ease;
+}
+.press-quote:hover{border-top-color:var(--gold)}
+.press-quote-text{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:clamp(18px,2vw,24px);
+  line-height:1.5;
+  color:var(--text-cream);
+  margin-bottom:24px;
+}
+.press-quote-source{
+  font-size:10px;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--gold);
+}
+.stats-row{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;margin-top:2px;
+}
+.stat-box{
+  background:var(--bg-card);
+  padding:48px 40px;
+  text-align:center;
+}
+.stat-number{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:clamp(48px,6vw,80px);
+  line-height:1;
+  color:var(--text-cream);
+}
+.stat-label{
+  font-size:10px;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--text-warm);
+  margin-top:8px;
+}
+
+/* ─── BOOKING CTA ──────────────────────────────────────────── */
+#booking{
+  position:relative;overflow:hidden;
+  min-height:70vh;
+  display:flex;align-items:center;justify-content:center;
+}
+.booking-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 50% 50%,rgba(201,169,110,0.06) 0%,transparent 60%),
+    linear-gradient(135deg,#0c0a07 0%,#080806 100%);
+}
+.booking-bg-lines{
+  position:absolute;inset:0;overflow:hidden;
+}
+.booking-bg-lines::before{
+  content:'';position:absolute;
+  top:50%;left:50%;
+  width:800px;height:800px;
+  transform:translate(-50%,-50%);
+  border:1px solid rgba(201,169,110,0.04);
+  border-radius:50%;
+}
+.booking-bg-lines::after{
+  content:'';position:absolute;
+  top:50%;left:50%;
+  width:500px;height:500px;
+  transform:translate(-50%,-50%);
+  border:1px solid rgba(201,169,110,0.06);
+  border-radius:50%;
+}
+.booking-content{
+  position:relative;z-index:2;
+  text-align:center;
+  max-width:700px;padding:0 24px;
+}
+.booking-title{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:300;
+  font-size:clamp(52px,8vw,100px);
+  line-height:0.95;
+  color:var(--text-cream);
+  margin:16px 0 32px;
+}
+.booking-sub{
+  font-size:14px;line-height:1.8;
+  color:var(--text-warm);
+  max-width:440px;margin:0 auto 48px;
+}
+.booking-reassurance{
+  margin-top:20px;
+  font-size:11px;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--text-muted);
+}
+
+/* ─── TRACKS STRIP ─────────────────────────────────────────── */
+#originals{background:var(--bg-surface)}
+.tracks-list{border-top:1px solid var(--border-subtle)}
+.track-row{
+  display:flex;align-items:center;
+  gap:24px;
+  padding:24px 0;
+  border-bottom:1px solid var(--border-subtle);
+  cursor:pointer;
+  transition:background 0.3s ease;
+  position:relative;
+  padding:24px 16px;
+}
+.track-row:hover{background:rgba(201,169,110,0.02)}
+.track-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:24px;color:var(--text-muted);
+  min-width:36px;
+  transition:color 0.3s ease;
+}
+.track-row:hover .track-num{color:var(--gold)}
+.track-artwork{
+  width:56px;height:56px;flex-shrink:0;
+  background:linear-gradient(135deg,#1a1208,#100c06);
+  position:relative;overflow:hidden;
+}
+.track-artwork-glow{
+  position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 60%,rgba(201,169,110,0.2),transparent);
+}
+.track-info{flex:1}
+.track-name{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:20px;color:var(--text-cream);
+  line-height:1.2;
+}
+.track-desc{
+  font-size:12px;color:var(--text-warm);
+  margin-top:3px;
+  line-height:1.5;
+}
+.track-year-badge{
+  font-size:10px;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--gold);
+  border:1px solid var(--border-gold);
+  padding:4px 10px;
+}
+.track-platforms{
+  display:flex;gap:8px;
+}
+.track-platform-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--text-muted);
+  transition:background 0.3s ease;
+}
+.track-row:hover .track-platform-dot{background:var(--gold)}
+
+/* ─── FOOTER ───────────────────────────────────────────────── */
+footer{
+  background:var(--bg-card);
+  border-top:1px solid var(--border-subtle);
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  padding:80px 48px 48px;
+}
+.footer-grid{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:60px;margin-bottom:72px;
+}
+.footer-brand .wordmark{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:26px;font-weight:300;
+  color:var(--text-cream);
+  letter-spacing:0.05em;
+}
+.footer-tagline{
+  font-size:13px;color:var(--text-warm);
+  line-height:1.7;margin-top:16px;
+  max-width:280px;
+}
+.footer-socials{
+  display:flex;gap:12px;margin-top:28px;
+}
+.social-icon{
+  width:36px;height:36px;
+  border:1px solid var(--border-subtle);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  color:var(--text-warm);
+  font-size:11px;letter-spacing:0.1em;
+  transition:all 0.3s ease;
+}
+.social-icon:hover{
+  border-color:var(--border-gold);color:var(--gold);
+}
+.footer-col-title{
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--text-warm);margin-bottom:20px;
+}
+.footer-col a{
+  display:block;
+  font-size:14px;color:var(--text-muted);
+  text-decoration:none;margin-bottom:12px;
+  transition:color 0.3s ease;
+  letter-spacing:0.02em;
+}
+.footer-col a:hover{color:var(--text-cream)}
+.footer-bottom{
+  border-top:1px solid var(--border-subtle);
+  padding-top:28px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:16px;
+}
+.footer-copyright{
+  font-size:11px;color:var(--text-muted);letter-spacing:0.05em;
+}
+.footer-legal{
+  display:flex;gap:24px;
+}
+.footer-legal a{
+  font-size:11px;color:var(--text-muted);
+  text-decoration:none;letter-spacing:0.05em;
+  transition:color 0.3s ease;
+}
+.footer-legal a:hover{color:var(--text-warm)}
+
+/* ─── KEYFRAMES ────────────────────────────────────────────── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:0.4;transform:scaleY(1)}
+  50%{opacity:1;transform:scaleY(1.15)}
+}
+
+/* ─── RESPONSIVE ───────────────────────────────────────────── */
+@media(max-width:1024px){
+  .release-grid,.story-grid{grid-template-columns:1fr;gap:48px}
+  .perf-grid{grid-template-columns:1fr 1fr}
+  .perf-card:first-child{grid-row:span 1;aspect-ratio:0.8}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
+}
+@media(max-width:768px){
+  nav{padding:20px 24px}
+  nav.scrolled{padding:16px 24px}
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .section-inner{padding:80px 24px}
+  .perf-header{flex-direction:column;align-items:flex-start;gap:20px}
+  .press-quote-block,.stats-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:36px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .perf-grid{grid-template-columns:1fr}
+  .booking-title{font-size:clamp(44px,12vw,80px)}
+}
+@media(max-width:480px){
+  .hero-ctas{flex-direction:column;align-items:center}
+  .btn-primary,.btn-outline{width:100%;justify-content:center;max-width:280px}
+}
+
+/* ─── MOBILE MENU ──────────────────────────────────────────── */
+.mobile-menu{
+  position:fixed;inset:0;z-index:99;
+  background:rgba(8,8,8,0.97);
+  backdrop-filter:blur(20px);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:36px;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.4s ease;
+}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:40px;font-weight:300;
+  color:var(--text-cream);text-decoration:none;
+  transition:color 0.3s ease;
+}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-close{
+  position:absolute;top:24px;right:24px;
+  background:none;border:none;cursor:none;
+  font-size:24px;color:var(--text-warm);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <a href="#" onclick="closeMobileMenu()">About</a>
+  <a href="#" onclick="closeMobileMenu()">Music</a>
+  <a href="#" onclick="closeMobileMenu()">Performances</a>
+  <a href="#" onclick="closeMobileMenu()">Press</a>
+  <a href="#" onclick="closeMobileMenu()" style="color:var(--gold);font-size:20px;letter-spacing:0.15em;font-style:normal;font-family:'DM Sans',sans-serif;text-transform:uppercase">Book Now</a>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <a href="/" class="nav-wordmark">Aadya Rajwanshi</a>
+  <div class="nav-links">
+    <a href="#">About</a>
+    <a href="#">Music</a>
+    <a href="#">Performances</a>
+    <a href="#">Press</a>
+    <a href="#booking" class="nav-book">Book Now</a>
+  </div>
+  <div class="nav-toggle" onclick="openMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-photo"></div>
+  <div class="hero-content">
+    <div class="hero-credential reveal">
+      <span>ITV · The Voice Kids UK · BRIT School Croydon</span>
+    </div>
+    <h1 class="hero-name">
+      Aadya
+      <em>Rajwanshi</em>
+    </h1>
+    <p class="hero-tagline">Where Bollywood soul meets British songwriting</p>
+    <div class="hero-ctas">
+      <a href="https://open.spotify.com/artist/12D4lm1KgJQzQAuJHDd3Fu" target="_blank" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Stream Now
+      </a>
+      <a href="#booking" class="btn-outline">
+        Book a Performance →
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ CREDENTIAL MARQUEE ══════════════════════════════════════ -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <!-- Duplicated for infinite loop -->
+    <span class="marquee-item"><span class="marquee-dot"></span> ITV · The Voice Kids UK</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> BRIT School Croydon</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Original Artist on Spotify &amp; Apple Music</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Performing Since Age 8</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> English &amp; Hindi Fusion</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> South Asian British Artist</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Team Pixie · Voice Kids UK 2020</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> ITV · The Voice Kids UK</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> BRIT School Croydon</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Original Artist on Spotify &amp; Apple Music</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Performing Since Age 8</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> English &amp; Hindi Fusion</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> South Asian British Artist</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Team Pixie · Voice Kids UK 2020</span>
+  </div>
+</div>
+
+<!-- ═══ FEATURED RELEASE ════════════════════════════════════════ -->
+<section id="release">
+  <div class="section-inner">
+    <div class="release-grid">
+      <div class="release-artwork reveal">
+        <div class="release-artwork-inner"></div>
+        <div class="release-artwork-label">
+          <div class="track-title">Tarnished Reputation</div>
+          <div class="track-year">2024 · Original</div>
+        </div>
+      </div>
+      <div class="release-info">
+        <p class="section-label reveal">Latest Release</p>
+        <h2 class="section-title reveal reveal-delay-1">New Music<br>Out Now</h2>
+        <p class="release-desc reveal reveal-delay-2">
+          A raw, confessional pop anthem about finding your voice in the silence. 
+          Bold production, honest lyrics — Aadya's most personal work to date.
+        </p>
+        <div class="platform-links reveal reveal-delay-3">
+          <a href="https://open.spotify.com/artist/12D4lm1KgJQzQAuJHDd3Fu" target="_blank" class="platform-link">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+            Spotify
+          </a>
+          <a href="https://music.apple.com/in/artist/aadya-rajwanshi/1640891755" target="_blank" class="platform-link">Apple Music</a>
+          <a href="https://soundcloud.com/aadya-rajwanshi" target="_blank" class="platform-link">SoundCloud</a>
+          <a href="https://youtube.com/@aadyarajwanshi" target="_blank" class="platform-link">YouTube</a>
+        </div>
+        <div class="spotify-embed-container reveal reveal-delay-4">
+          <iframe 
+            src="https://open.spotify.com/embed/artist/12D4lm1KgJQzQAuJHDd3Fu?utm_source=generator&theme=0" 
+            width="100%" height="152" 
+            frameborder="0" allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy"
+            style="background:#111111">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ORIGINAL TRACKS ══════════════════════════════════════════ -->
+<section id="originals">
+  <div class="section-inner">
+    <p class="section-label reveal">Originals</p>
+    <h2 class="section-title reveal reveal-delay-1">Her Own<br>Words</h2>
+    <div class="tracks-list" style="margin-top:48px">
+
+      <div class="track-row reveal reveal-delay-2">
+        <div class="track-num">01</div>
+        <div class="track-artwork"><div class="track-artwork-glow"></div></div>
+        <div class="track-info">
+          <div class="track-name">Tarnished Reputation</div>
+          <div class="track-desc">A confessional pop anthem that doesn't ask for forgiveness.</div>
+        </div>
+        <div class="track-year-badge">2024</div>
+        <div class="track-platforms">
+          <div class="track-platform-dot" title="Spotify"></div>
+          <div class="track-platform-dot" title="Apple Music"></div>
+          <div class="track-platform-dot" title="SoundCloud"></div>
+        </div>
+      </div>
+
+      <div class="track-row reveal reveal-delay-3">
+        <div class="track-num">02</div>
+        <div class="track-artwork"><div class="track-artwork-glow"></div></div>
+        <div class="track-info">
+          <div class="track-name">Blessed</div>
+          <div class="track-desc">A soulful reflection on gratitude and growth.</div>
+        </div>
+        <div class="track-year-badge">2024</div>
+        <div class="track-platforms">
+          <div class="track-platform-dot"></div>
+          <div class="track-platform-dot"></div>
+          <div class="track-platform-dot"></div>
+        </div>
+      </div>
+
+      <div class="track-row reveal reveal-delay-4">
+        <div class="track-num">03</div>
+        <div class="track-artwork"><div class="track-artwork-glow"></div></div>
+        <div class="track-info">
+          <div class="track-name">What Is Life</div>
+          <div class="track-desc">The question that started everything. Debut original — introspective, melodic, unmistakably her.</div>
+        </div>
+        <div class="track-year-badge">2024</div>
+        <div class="track-platforms">
+          <div class="track-platform-dot"></div>
+          <div class="track-platform-dot"></div>
+          <div class="track-platform-dot"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ARTIST STORY ════════════════════════════════════════════ -->
+<section id="story">
+  <div class="section-inner">
+    <div class="story-grid">
+      <div>
+        <p class="section-label reveal">The Artist</p>
+        <blockquote class="story-quote reveal reveal-delay-1">
+          "At 10, I stood on ITV and sang in two languages. At 16, I'm writing the songs that only I can write."
+        </blockquote>
+        <p class="story-attribution reveal reveal-delay-2">— Aadya Rajwanshi</p>
+      </div>
+      <div class="story-text">
+        <p class="story-body reveal">
+          Aadya Rajwanshi is a British-South Asian singer-songwriter training at the 
+          <strong style="color:var(--text-cream);font-weight:400">BRIT School in Croydon</strong> — 
+          the institution that shaped Adele, Amy Winehouse, and FKA Twigs.
+        </p>
+        <p class="story-body reveal reveal-delay-1">
+          She first came to national attention in 2020, walking onto the ITV stage for 
+          <em style="color:var(--text-cream)">The Voice Kids UK</em> at just ten years old. 
+          Her bilingual blind audition — fusing Sia's <em>Cheap Thrills</em> with the Bollywood 
+          classic <em>Pehli Nazar Mein</em> — left coaches speechless. She joined Team Pixie.
+        </p>
+        <p class="story-body reveal reveal-delay-2">
+          Since then, Aadya has been building something more personal: a body of original work 
+          that refuses to be defined by genre, language, or expectation.
+        </p>
+        <div class="timeline reveal reveal-delay-3">
+          <div class="timeline-item">
+            <div class="timeline-year">2020</div>
+            <div class="timeline-event">
+              <strong>ITV · The Voice Kids UK</strong>
+              Blind audition at age 10. Bilingual mashup. Joined Team Pixie.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2022</div>
+            <div class="timeline-event">
+              <strong>Live Performances Across the UK</strong>
+              Diwali in Luton, cultural events, growing stage presence.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2023</div>
+            <div class="timeline-event">
+              <strong>BRIT School Croydon</strong>
+              Accepted to one of the UK's most prestigious specialist music institutions.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-event">
+              <strong>Original Music Releases</strong>
+              Tarnished Reputation · Blessed · What Is Life — on all platforms.
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:48px" class="reveal">
+          <a href="#" class="btn-outline">Read Aadya's Full Story →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PERFORMANCES ════════════════════════════════════════════ -->
+<section id="performances">
+  <div class="section-inner">
+    <div class="perf-header">
+      <div>
+        <p class="section-label reveal">Live</p>
+        <h2 class="section-title reveal reveal-delay-1">Performances</h2>
+      </div>
+      <a href="#" class="btn-outline reveal reveal-delay-2">View All →</a>
+    </div>
+    <div class="perf-grid">
+
+      <div class="perf-card reveal">
+        <div class="perf-card-bg" style="background:linear-gradient(135deg,#1a1008,#0d0908)"></div>
+        <div class="perf-card-overlay"></div>
+        <div class="perf-card-content">
+          <div class="perf-card-tag">ITV Network · 2020</div>
+          <div class="perf-card-title">The Voice Kids UK — Blind Audition</div>
+          <div class="perf-card-meta">Cheap Thrills / Pehli Nazar Mein</div>
+        </div>
+        <a href="https://www.youtube.com/watch?v=3q6r75DNNNU" target="_blank" class="perf-card-play">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </a>
+      </div>
+
+      <div class="perf-card reveal reveal-delay-1">
+        <div class="perf-card-bg" style="background:linear-gradient(135deg,#120d18,#0a080d)"></div>
+        <div class="perf-card-overlay"></div>
+        <div class="perf-card-content">
+          <div class="perf-card-tag">ITV · The Battles</div>
+          <div class="perf-card-title">Somewhere Only We Know</div>
+          <div class="perf-card-meta">Team Pixie · Voice Kids UK 2020</div>
+        </div>
+        <a href="https://www.youtube.com/watch?v=ixssgwQu4ig" target="_blank" class="perf-card-play">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </a>
+      </div>
+
+      <div class="perf-card reveal reveal-delay-2">
+        <div class="perf-card-bg" style="background:linear-gradient(135deg,#0d1810,#08100a)"></div>
+        <div class="perf-card-overlay"></div>
+        <div class="perf-card-content">
+          <div class="perf-card-tag">Live Event · 2022</div>
+          <div class="perf-card-title">Diwali in Luton</div>
+          <div class="perf-card-meta">St George's Square, Luton</div>
+        </div>
+        <a href="https://www.youtube.com/watch?v=69p658AC3q0" target="_blank" class="perf-card-play">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </a>
+      </div>
+
+      <div class="perf-card reveal reveal-delay-3">
+        <div class="perf-card-bg" style="background:linear-gradient(135deg,#18100a,#100908)"></div>
+        <div class="perf-card-overlay"></div>
+        <div class="perf-card-content">
+          <div class="perf-card-tag">Original · 2024</div>
+          <div class="perf-card-title">Tarnished Reputation</div>
+          <div class="perf-card-meta">Official Music Video</div>
+        </div>
+        <a href="https://youtube.com/@aadyarajwanshi" target="_blank" class="perf-card-play">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOCIAL PROOF ════════════════════════════════════════════ -->
+<section id="press">
+  <div class="section-inner">
+    <div class="press-logos reveal">
+      <span class="press-logo"><em>ITV</em></span>
+      <span class="press-logo">BizAsia<em style="font-size:10px;letter-spacing:0.1em"> Media</em></span>
+      <span class="press-logo"><em>The Voice</em> Kids UK</span>
+      <span class="press-logo">Spotify<em style="font-size:10px"> Artist</em></span>
+      <span class="press-logo">Apple<em style="font-size:10px"> Music</em></span>
+    </div>
+
+    <div class="press-quote-block">
+      <div class="press-quote reveal">
+        <p class="press-quote-text">
+          "The 10-year-old impressed judges with her fusion of English and Bollywood — 
+          a unique blind audition that got everyone dancing."
+        </p>
+        <p class="press-quote-source">BizAsia · July 2020</p>
+      </div>
+      <div class="press-quote reveal reveal-delay-1">
+        <p class="press-quote-text">
+          "Aadya's bilingual mashup was unlike anything we'd heard on The Voice Kids. 
+          She performed in two languages, two worlds — seamlessly."
+        </p>
+        <p class="press-quote-source">ITV · The Voice Kids UK, Series 4</p>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box reveal">
+        <div class="stat-number">10M+</div>
+        <div class="stat-label">ITV Viewers Reached</div>
+      </div>
+      <div class="stat-box reveal reveal-delay-1">
+        <div class="stat-number">4+</div>
+        <div class="stat-label">Original Releases</div>
+      </div>
+      <div class="stat-box reveal reveal-delay-2">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Years Performing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BOOKING CTA ══════════════════════════════════════════════ -->
+<section id="booking">
+  <div class="booking-bg"></div>
+  <div class="booking-bg-lines"></div>
+  <div class="booking-content">
+    <p class="section-label reveal">Book</p>
+    <h2 class="booking-title reveal reveal-delay-1">
+      Book<br>Aadya
+    </h2>
+    <p class="booking-sub reveal reveal-delay-2">
+      Available for live performances, cultural festivals, brand events, 
+      TV appearances, and private shows. Performs in English and Hindi.
+    </p>
+    <div class="reveal reveal-delay-3">
+      <a href="mailto:management@aadyarajwanshi.com" class="btn-primary" style="font-size:12px;padding:16px 48px">
+        Book a Performance →
+      </a>
+    </div>
+    <p class="booking-reassurance reveal reveal-delay-4">
+      Fast response · Professional management · ITV · BRIT School
+    </p>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="wordmark">Aadya Rajwanshi</div>
+        <p class="footer-tagline">
+          British-South Asian singer-songwriter. BRIT School Croydon. 
+          ITV's The Voice Kids UK. Original artist.
+        </p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/aadyarajwanshimusic" target="_blank" class="social-icon">IG</a>
+          <a href="https://youtube.com/@aadyarajwanshi" target="_blank" class="social-icon">YT</a>
+          <a href="https://open.spotify.com/artist/12D4lm1KgJQzQAuJHDd3Fu" target="_blank" class="social-icon">SP</a>
+          <a href="https://www.facebook.com/aadyarajwanshiofficial" target="_blank" class="social-icon">FB</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Navigate</p>
+        <a href="#">About</a>
+        <a href="#">Music</a>
+        <a href="#">Performances</a>
+        <a href="#">Press</a>
+        <a href="#">Gallery</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Music</p>
+        <a href="https://open.spotify.com/artist/12D4lm1KgJQzQAuJHDd3Fu" target="_blank">Spotify</a>
+        <a href="https://music.apple.com/in/artist/aadya-rajwanshi/1640891755" target="_blank">Apple Music</a>
+        <a href="https://soundcloud.com/aadya-rajwanshi" target="_blank">SoundCloud</a>
+        <a href="https://youtube.com/@aadyarajwanshi" target="_blank">YouTube</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Contact</p>
+        <a href="mailto:management@aadyarajwanshi.com">management@<br>aadyarajwanshi.com</a>
+        <a href="#booking" style="margin-top:16px">Book a Performance</a>
+        <a href="#">Press Enquiries</a>
+        <a href="#">Download EPK</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2025 Aadya Rajwanshi. All rights reserved. London, UK.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── CURSOR ────────────────────────────────────────────────────
+const dot = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
+let mouseX=0,mouseY=0,ringX=0,ringY=0;
+
+document.addEventListener('mousemove',(e)=>{
+  mouseX=e.clientX;mouseY=e.clientY;
+  dot.style.left=mouseX+'px';dot.style.top=mouseY+'px';
+});
+
+function animateCursor(){
+  ringX+=(mouseX-ringX)*0.12;
+  ringY+=(mouseY-ringY)*0.12;
+  ring.style.left=ringX+'px';ring.style.top=ringY+'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+document.querySelectorAll('a,button,.perf-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    ring.style.width='56px';ring.style.height='56px';
+    ring.style.borderColor='rgba(201,169,110,0.7)';
+  });
+  el.addEventListener('mouseleave',()=>{
+    ring.style.width='32px';ring.style.height='32px';
+    ring.style.borderColor='rgba(201,169,110,0.4)';
+  });
+});
+
+// ─── NAV SCROLL ────────────────────────────────────────────────
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>60);
+});
+
+// ─── SCROLL REVEAL ─────────────────────────────────────────────
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in-view');
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// ─── MOBILE MENU ───────────────────────────────────────────────
+function openMobileMenu(){
+  document.getElementById('mobile-menu').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeMobileMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+// ─── TRACK ROW HOVER ───────────────────────────────────────────
+document.querySelectorAll('.track-row').forEach(row=>{
+  const num=row.querySelector('.track-num');
+  row.addEventListener('mouseenter',()=>{
+    const orig=num.textContent;
+    num.textContent='▶';
+    row._orig=orig;
+  });
+  row.addEventListener('mouseleave',()=>{
+    if(row._orig)num.textContent=row._orig;
+  });
+});
+</script>
+</body>
+</html>
