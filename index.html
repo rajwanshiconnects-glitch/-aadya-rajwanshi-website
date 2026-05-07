@@ -461,64 +461,89 @@ section{position:relative}
   display:flex;justify-content:space-between;
   align-items:flex-end;margin-bottom:60px;
 }
-.perf-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:2px;
+.perf-timeline {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-subtle);
 }
-.perf-card{
-  position:relative;aspect-ratio:0.8;
-  background:var(--bg-card);
-  overflow:hidden;cursor:pointer;
+.perf-row {
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+  position: relative;
 }
-.perf-card:first-child{
-  grid-row:span 2;aspect-ratio:auto;
+.perf-row:hover {
+  background: rgba(255, 255, 255, 0.02);
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 -20px;
 }
-.perf-card-bg{
-  position:absolute;inset:0;
-  background:linear-gradient(135deg,#181208,#100c06);
-  transition:transform 0.6s cubic-bezier(0.16,1,0.3,1);
+.perf-row-year {
+  width: 120px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
 }
-.perf-card:hover .perf-card-bg{transform:scale(1.04)}
-.perf-card-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(8,8,8,0.9) 0%,rgba(8,8,8,0.2) 60%,transparent 100%);
+.perf-row-details {
+  flex: 1;
 }
-.perf-card-content{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:28px;
+.perf-row-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(24px, 3vw, 36px);
+  color: var(--text-cream);
+  font-weight: 300;
+  margin-bottom: 8px;
 }
-.perf-card-tag{
-  display:inline-block;
-  font-size:9px;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:10px;
+.perf-row-meta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
 }
-.perf-card-title{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;
-  font-size:clamp(20px,2.5vw,28px);
-  line-height:1.2;
-  color:var(--text-cream);
+.perf-row-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-warm);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
 }
-.perf-card-meta{
-  margin-top:8px;
-  font-size:11px;letter-spacing:0.1em;
-  color:rgba(240,234,224,0.45);
+.perf-row-link span {
+  font-family: sans-serif;
+  transition: transform 0.3s ease;
 }
-.perf-card-play{
-  position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-50%) scale(0.8);
-  width:56px;height:56px;border-radius:50%;
-  border:1px solid rgba(201,169,110,0.4);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;transition:all 0.4s ease;
-  background:rgba(8,8,8,0.5);
-  backdrop-filter:blur(8px);
+.perf-row-link:hover {
+  color: var(--gold);
 }
-.perf-card:hover .perf-card-play{
-  opacity:1;transform:translate(-50%,-50%) scale(1);
+.perf-row-link:hover span {
+  transform: translateX(4px);
 }
-.perf-card-play svg{width:18px;height:18px;fill:var(--gold);margin-left:3px}
+@media (max-width: 768px) {
+  .perf-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 32px 0;
+  }
+  .perf-row-year {
+    width: auto;
+  }
+  .perf-row:hover {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    background: transparent;
+  }
+}
+/* Removed legacy perf-grid styles */
 
 /* ─── SOCIAL PROOF ─────────────────────────────────────────── */
 #press{background:#080808}
@@ -851,21 +876,19 @@ footer{
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobile-menu">
   <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
-  <a href="#" onclick="closeMobileMenu()">About</a>
-  <a href="#" onclick="closeMobileMenu()">Music</a>
-  <a href="#" onclick="closeMobileMenu()">Performances</a>
-  <a href="#" onclick="closeMobileMenu()">Press</a>
-  <a href="#" onclick="closeMobileMenu()" style="color:var(--gold);font-size:20px;letter-spacing:0.15em;font-style:normal;font-family:'DM Sans',sans-serif;text-transform:uppercase">Book Now</a>
+  <a href="#story" onclick="closeMobileMenu()">About</a>
+  <a href="#originals" onclick="closeMobileMenu()">Music</a>
+  <a href="#performances" onclick="closeMobileMenu()">Performances</a>
+  <a href="#booking" onclick="closeMobileMenu()" style="color:var(--gold);font-size:20px;letter-spacing:0.15em;font-style:normal;font-family:'DM Sans',sans-serif;text-transform:uppercase">Book Now</a>
 </div>
 
 <!-- Navigation -->
 <nav id="navbar">
   <a href="/" class="nav-wordmark">Aadya Rajwanshi</a>
   <div class="nav-links">
-    <a href="#">About</a>
-    <a href="#">Music</a>
-    <a href="#">Performances</a>
-    <a href="#">Press</a>
+    <a href="#story">About</a>
+    <a href="#originals">Music</a>
+    <a href="#performances">Performances</a>
     <a href="#booking" class="nav-book">Book Now</a>
   </div>
   <div class="nav-toggle" onclick="openMobileMenu()">
@@ -1317,58 +1340,42 @@ footer{
       </div>
       <a href="#" class="btn-outline reveal reveal-delay-2">View All →</a>
     </div>
-    <div class="perf-grid">
+    <div class="perf-timeline">
 
-      <div class="perf-card reveal">
-        <div class="perf-card-bg" style="background:linear-gradient(135deg,#1a1008,#0d0908)"></div>
-        <div class="perf-card-overlay"></div>
-        <div class="perf-card-content">
-          <div class="perf-card-tag">ITV Network · 2020</div>
-          <div class="perf-card-title">The Voice Kids UK — Blind Audition</div>
-          <div class="perf-card-meta">Cheap Thrills / Pehli Nazar Mein</div>
+      <div class="perf-row reveal">
+        <div class="perf-row-year">2024</div>
+        <div class="perf-row-details">
+          <h3 class="perf-row-title">Tarnished Reputation</h3>
+          <p class="perf-row-meta">Official Music Video</p>
         </div>
-        <a href="https://www.youtube.com/watch?v=3q6r75DNNNU" target="_blank" class="perf-card-play">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </a>
+        <a href="https://youtube.com/@aadyarajwanshi" target="_blank" class="perf-row-link">Watch <span>→</span></a>
       </div>
 
-      <div class="perf-card reveal reveal-delay-1">
-        <div class="perf-card-bg" style="background:linear-gradient(135deg,#120d18,#0a080d)"></div>
-        <div class="perf-card-overlay"></div>
-        <div class="perf-card-content">
-          <div class="perf-card-tag">ITV · The Battles</div>
-          <div class="perf-card-title">Somewhere Only We Know</div>
-          <div class="perf-card-meta">Team Pixie · Voice Kids UK 2020</div>
+      <div class="perf-row reveal">
+        <div class="perf-row-year">2022</div>
+        <div class="perf-row-details">
+          <h3 class="perf-row-title">Diwali in Luton</h3>
+          <p class="perf-row-meta">St George's Square, Luton</p>
         </div>
-        <a href="https://www.youtube.com/watch?v=ixssgwQu4ig" target="_blank" class="perf-card-play">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </a>
+        <a href="https://www.youtube.com/watch?v=69p658AC3q0" target="_blank" class="perf-row-link">Watch <span>→</span></a>
       </div>
 
-      <div class="perf-card reveal reveal-delay-2">
-        <div class="perf-card-bg" style="background:linear-gradient(135deg,#0d1810,#08100a)"></div>
-        <div class="perf-card-overlay"></div>
-        <div class="perf-card-content">
-          <div class="perf-card-tag">Live Event · 2022</div>
-          <div class="perf-card-title">Diwali in Luton</div>
-          <div class="perf-card-meta">St George's Square, Luton</div>
+      <div class="perf-row reveal">
+        <div class="perf-row-year">2020</div>
+        <div class="perf-row-details">
+          <h3 class="perf-row-title">Somewhere Only We Know (The Battles)</h3>
+          <p class="perf-row-meta">Team Pixie · Voice Kids UK 2020</p>
         </div>
-        <a href="https://www.youtube.com/watch?v=69p658AC3q0" target="_blank" class="perf-card-play">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </a>
+        <a href="https://www.youtube.com/watch?v=ixssgwQu4ig" target="_blank" class="perf-row-link">Watch <span>→</span></a>
       </div>
 
-      <div class="perf-card reveal reveal-delay-3">
-        <div class="perf-card-bg" style="background:linear-gradient(135deg,#18100a,#100908)"></div>
-        <div class="perf-card-overlay"></div>
-        <div class="perf-card-content">
-          <div class="perf-card-tag">Original · 2024</div>
-          <div class="perf-card-title">Tarnished Reputation</div>
-          <div class="perf-card-meta">Official Music Video</div>
+      <div class="perf-row reveal">
+        <div class="perf-row-year">2020</div>
+        <div class="perf-row-details">
+          <h3 class="perf-row-title">Cheap Thrills / Pehli Nazar Mein (Blind Audition)</h3>
+          <p class="perf-row-meta">The Voice Kids UK</p>
         </div>
-        <a href="https://youtube.com/@aadyarajwanshi" target="_blank" class="perf-card-play">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </a>
+        <a href="https://www.youtube.com/watch?v=3q6r75DNNNU" target="_blank" class="perf-row-link">Watch <span>→</span></a>
       </div>
 
     </div>
@@ -1463,11 +1470,9 @@ footer{
       </div>
       <div class="footer-col">
         <p class="footer-col-title">Navigate</p>
-        <a href="#">About</a>
-        <a href="#">Music</a>
-        <a href="#">Performances</a>
-        <a href="#">Press</a>
-        <a href="#">Gallery</a>
+        <a href="#story">About</a>
+        <a href="#originals">Music</a>
+        <a href="#performances">Performances</a>
       </div>
       <div class="footer-col">
         <p class="footer-col-title">Music</p>
@@ -1481,7 +1486,6 @@ footer{
         <a href="mailto:rajwanshiaadya@gmail.com">rajwanshiaadya@<br>gmail.com</a>
         <a href="#booking" style="margin-top:16px">Book a Performance</a>
         <a href="#">Press Enquiries</a>
-        <a href="#">Download EPK</a>
       </div>
     </div>
     <div class="footer-bottom">
